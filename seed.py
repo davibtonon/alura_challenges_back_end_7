@@ -1,6 +1,7 @@
+# Script para cria os dados fakes para testa a aplicação
+
 import os
 import django
-
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', "setup.settings")
 django.setup()
@@ -11,9 +12,9 @@ import random
 from controller.models import Depoimentos
 
 
-
 def cria_dados_faker(quantidade=10):
-    #
+    # Função que cria os depoimentos fakes
+
     fake = Faker('pt_BR')
     
     for _ in range(quantidade):
@@ -34,4 +35,5 @@ def cria_dados_faker(quantidade=10):
 
     print(f"Finalizado foram criados {quantidade} depoimentos")
 
-cria_dados_faker(5)
+if __name__ == '__main__':
+    cria_dados_faker(50)
