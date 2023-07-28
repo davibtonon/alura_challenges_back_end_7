@@ -17,15 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from controller.views import DepoimentosViewSet,DepoimentosAleatoriosViewSet
+from controller.views import DepoimentosViewSet,DepoimentosAleatoriosViewSet, DestinosViewSet
 
 
 router = routers.DefaultRouter()
 router.register('depoimentos', DepoimentosViewSet, basename='depoimentos')
-# router.register(
-#     'depoimentoshome', 
-#     DepoimentosAleatoriosViewSet, 
-#     basename='depoimentoshome')
+router.register('Destinos', DestinosViewSet, basename='Destinos')
 
 
 urlpatterns = [
