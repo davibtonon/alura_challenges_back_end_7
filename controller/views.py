@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from controller.models import Depoimentos, Destinos
-from controller.serializers import DepoimentosSerializers, DestinosSerializers
+from controller.serializers import DepoimentosSerializers, DestinosSerializers, DestinosSerializersV2
 from rest_framework import generics, viewsets, filters
 from rest_framework.response import Response
 
@@ -45,3 +45,9 @@ class DestinosViewSet(viewsets.ModelViewSet):
             return Response({"message": "Nenhum resultado encontrado."})
         
         return Response(serializer.data)
+    
+    def get_serializer_class(self):
+        if self.request.version == 'v2':
+            return DestinosSerializersV2
+        else:
+            return DestinosSerializers

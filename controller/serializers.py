@@ -11,3 +11,8 @@ class DestinosSerializers(serializers.ModelSerializer):
     class Meta:
         model = Destinos
         fields = ['foto', 'nome', 'preco']
+
+class DestinosSerializersV2(serializers.ModelSerializer):
+    class Meta:
+        model = Destinos
+        fields = ['foto', 'foto_2', 'meta', 'texto_descritivo', 'nome', 'preco']
